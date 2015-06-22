@@ -1,3 +1,3 @@
 var person = "Tony";
 
-console.log(person);
+stevesApp.logPerson();

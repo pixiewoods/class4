@@ -1,5 +1,7 @@
-var person = "Steve";
+var stevesApp = {};
 
-function logPerson(){
-	console.log(person);
+stevesApp.person = "Steve";
+
+stevesApp.logPerson = function(){
+	console.log(stevesApp.person);
 };
