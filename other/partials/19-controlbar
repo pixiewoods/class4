@@ -1,0 +1,58 @@
+  <div class="controlbar">
+    <input class="showBreakpoint" />
+  </div>
+
+$(document).ready(function(){
+
+	$(".menus h3").on("click", function(e){
+		console.log("hi");
+		$(this).next("ul").toggleClass("open");
+		return false;
+	});
+
+	var breakpoints = [
+	{breakfour: "1050px" }, 
+	{breakthree: "760px" }, 
+	{breaktwo: "520px" }, 
+	{breakone: "360px" }
+	];
+
+	var $window = $(window);
+	var width = $window.width();
+	checkWidth();
+
+	$(window).resize (function(){
+		width = $window.width();
+		checkWidth();
+	});
+	function checkWidth(){
+		if (width >= 1050){
+			$(".showBreakpoint").val("$break-four: 1050px or higher. Current: " + $window.width());
+		} else if (width >= 760) {
+			$(".showBreakpoint").val("$break-three: 760px or higher. Current: " + $window.width());
+		} else if (width >= 520) {
+			$(".showBreakpoint").val("$break-two: 520px or higher. Current: " + $window.width());
+		} else if (width >= 740) {
+			$(".showBreakpoint").val("$break-one: 360px or higher. Current: " + $window.width());
+		};
+	};
+});
+
+
+
+
+.controlbar {
+    padding:.25rem;
+    width:100%;
+    background: #000;
+    min-height: 1.25rem;
+
+    .showBreakpoint { 
+        background: #333; 
+        color: #fff; 
+        border: none;
+        width: 240px;
+        float: right;
+        padding: 5px;
+    }
+}
