@@ -1,5 +1,18 @@
 @import url("http://fonts.googleapis.com/css?family=Lato:300,400,700");
 @import url("normalize.css");
+.controlbar {
+  padding: .25rem;
+  width: 100%;
+  background: #000;
+  min-height: 2.5rem; }
+  .controlbar .showBreakpoint {
+    background: #333;
+    color: #fff;
+    border: none;
+    width: 240px;
+    float: right;
+    padding: 5px; }
+
 .group:after {
   content: "";
   display: table;
