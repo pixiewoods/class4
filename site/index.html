@@ -6,10 +6,17 @@
 
   <title>My Portfolio</title>
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" type="text/css" href="bootstrap-sass-3.3.5/assets/css/_bootstrap.css">
+ 
   <script src="js/modernizr.js"></script>
   <script src="https://code.angularjs.org/1.3.0-rc.1/angular.min.js"></script>
 </head>
 <body ng-init="messageText = 'Hello World!'">
+
+    <div class="controlbar">
+    <input class="showBreakpoint" />
+  </div>
+  
   <main class="wrap group">
     <aside class="sidebar">
      <div class="my-info">
@@ -55,62 +62,51 @@
 
     </nav>
   </aside>
-  <div class="content">
 
-
+  <div class="content" ng-init="portfolios = [
+  {name: 'vessel1309', title: 'Call of Booty', date: '2013-09-01', description: 'Arrrgh mateys! This be the finest vessel sailing these seas that yer eyes ever laid sight on. Arrrgh.', imageurl: 'drunkenPirate_thumb3.png' },
+  {name: 'innocents1404', title: 'The Sack of the Innocents', date: '2014-04-15', description: 'This be a detail of the sacking of the innocents where I played an important role as business analyst and in implementation.', imageurl: 'drunkenPirate_thumb2.png' },
+  {name: 'firstmate1210', title: 'Pipe and First Mate', date: '2012-10-01', description: 'After a hard day of lootin\' and shootin\' I like to relax with my best mates and tally up the days booty.', imageurl: 'drunkenPirate_thumb1.png' }
+  ]"  
+  >
+    
     <!-- inside the .content div -->
-    <article class="portfolio-item group first">
-      <header class="portfolio-info">
-        <div class="title">Call of Booty</div>
-        <div class="date">7 Nov 2013</div>
-        <div class="description">
-          Arrrgh mateys! This be the finest vessel sailing these seas that yer eyes ever laid sight on. Arrrgh.
-        </div>
-      </header>
-      <figure class="portfolio-image">
-        <img src="images/drunkenPirate_thumb3.png" alt="Pirate Ship">
-      </figure>
-    </article>
 
-    <article class="portfolio-item group">
-      <header class="portfolio-info">
-        <div class="title">The Sack of the Innocents</div>
-        <div class="date">7 Nov 2013</div>
-        <div class="description">
-          This be a detail of the sacking of the innocents where I played an important role as business analyst and in implementation.
-        </div>
-      </header>
-      <figure class="portfolio-image">
-        <img src="images/drunkenPirate_thumb2.png" alt="Sack of the Innocents">
-      </figure>
-    </article>
+  <div class="col-xs-4" ng-repeat="portfolio in portfolios">
 
-    <article class="portfolio-item group">
-      <header class="portfolio-info">
-        <div class="title">Pipe and First Mate</div>
-        <div class="date">7 Nov 2013</div>
-        <div class="description">
-          After a hard day of lootin' and shootin' I like to relax with my best mates and tally up the days booty.
-        </div>
-      </header>
-      <figure class="portfolio-image">
-        <img src="images/drunkenPirate_thumb1.png" alt="Pipe and Mate">
-      </figure>
-    </article>
+    <article class="portfolio-item group ">
+    <header class="portfolio-info">    
+
+    <div class="panel panel-default"> 
+      <div class="panel heading">
+      <div class="title">
+        {{ portfolio.title }}
+      </div>
+      <div class="date">
+        {{ portfolio.date }}
+      </div>
+      <div class="description">
+        <p>{{ portfolio.description }}</p>
+        <img class="img-responsive" ng-src="images/{{ portfolio.imageurl }}" />
+      </div>
+      </div>
+    </div>
+  </div>
 
     <article class="portfolio-item group loading-wrap">
       <header class="portfolio-info">
       </header>
       <figure class="portfolio-image">
         <div class="loading">
-          <img src="images/loading.png" alt="Loading" class="rotate">&nbsp;Loading...
+          <img class="img-responsive" ng-src="images/loading.png" alt="Loading" class="rotate">&nbsp;Loading...
         </div>
       </figure>
     </article>
 
+</div>    
 
-  </div>
 </main>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 <script src="js/app.js"></script>
 </body>
